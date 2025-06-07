@@ -13,11 +13,11 @@ namespace AutomationTestProject.TESTS
         IWebElement element;
         IWebDriver driver = new FirefoxDriver();
 
-        string url = Locators.URL;
+        string url = UserData.URL;
         string userNameField = Locators.USERNAME_FIELD;
         string passwordField = Locators.PASSWORD_FIELD;
-        string userName = Locators.USER_NAME;
-        string password = Locators.PASSWORD;
+        string userName = UserData.USER_NAME;
+        string password = UserData.PASSWORD;
         string loginBTN = Locators.LOGIN_BTN;
 
         [TestMethod]
