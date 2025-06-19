@@ -8,6 +8,6 @@
         internal const string PRODUCT_TO_ADD = "add-to-cart-test.allthethings()-t-shirt-(red)";
         internal const string SHOPPING_CARD = "shopping_cart_link";
         internal const string SORTING_DROP_DOWN = "//select[@class='product_sort_container']";
-        internal const string WARNING = "svg.svg-inline--fa:nth-child(1)";
+        internal const string WARNING = ".error-message-container > h3:nth-child(1)";
     }
 }
