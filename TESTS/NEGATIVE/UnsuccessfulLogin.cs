@@ -1,6 +1,7 @@
 ﻿using AutomationTestProject.BASE;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 
 namespace AutomationTestProject.TESTS.NEGATIVE
@@ -9,7 +10,7 @@ namespace AutomationTestProject.TESTS.NEGATIVE
     public class UnsuccessfulLogin
     {
         IWebElement element;
-        IWebDriver driver = new FirefoxDriver();
+        IWebDriver driver = DriverFactory.GetDriver("Firefox");
 
         string url = UserData.URL;
         string userNameField = Locators.USERNAME_FIELD;

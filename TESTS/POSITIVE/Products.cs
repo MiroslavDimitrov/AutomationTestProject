@@ -1,6 +1,7 @@
 ﻿using AutomationTestProject.BASE;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 
 namespace AutomationTestProject.TESTS
@@ -9,7 +10,7 @@ namespace AutomationTestProject.TESTS
     public class Products
     {
         IWebElement element;
-        IWebDriver driver = new FirefoxDriver();
+        IWebDriver driver = DriverFactory.GetDriver("Chrome");
 
         string title;
         string expectedTitle = Validations.EXPECTED_TITLE;
@@ -28,12 +29,13 @@ namespace AutomationTestProject.TESTS
         [TestMethod]
         public void AddProductTest()
         {
-            /*
-             * To-do
-             * Handle the Google password alert
-             */
+            var options = new ChromeOptions();
+            options.AddUserProfilePreference("credentials_enable_service", false);
+            options.AddUserProfilePreference("profile.password_manager_enabled", false);
+
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.FullScreen();
+
             element = driver.FindElement(By.Id(userNameField));
             element.Click();
             element.SendKeys(userName);
@@ -60,8 +62,14 @@ namespace AutomationTestProject.TESTS
         [TestMethod]
         public void SortProducts()
         {
+
+            var options = new ChromeOptions();
+            options.AddUserProfilePreference("credentials_enable_service", false);
+            options.AddUserProfilePreference("profile.password_manager_enabled", false);
+
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.FullScreen();
+
             element = driver.FindElement(By.Id(userNameField));
             element.Click();
             element.SendKeys(userName);

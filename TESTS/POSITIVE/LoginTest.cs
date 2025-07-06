@@ -1,7 +1,9 @@
 ﻿using AutomationTestProject.BASE;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using System.Runtime.InteropServices;
 
 namespace AutomationTestProject.TESTS
 {
@@ -9,7 +11,8 @@ namespace AutomationTestProject.TESTS
     public class LoginTest
     {
         IWebElement element;
-        IWebDriver driver = new FirefoxDriver();
+        IWebDriver driver = DriverFactory.GetDriver("Chrome");
+       
 
         string url = UserData.URL;
         string userNameField = Locators.USERNAME_FIELD;
@@ -21,6 +24,9 @@ namespace AutomationTestProject.TESTS
         [TestMethod]
         public void loginTest()
         {
+            var options = new ChromeOptions();
+            options.AddUserProfilePreference("credentials_enable_service", false);
+            options.AddUserProfilePreference("profile.password_manager_enabled", false);
 
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.FullScreen();
@@ -35,6 +41,7 @@ namespace AutomationTestProject.TESTS
 
             element = driver.FindElement(By.Id(loginBTN));
             element.Click();
+
             driver?.Quit();
         }
     }

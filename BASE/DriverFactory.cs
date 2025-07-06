@@ -3,6 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using System;
+using System.IO;
 
 namespace AutomationTestProject
 {
@@ -13,14 +14,29 @@ namespace AutomationTestProject
             switch (browser.ToLower())
             {
                 case "chrome":
-                    return new ChromeDriver();
+                    return GetChromeDriver();
                 case "firefox":
-                    return new FirefoxDriver();
+                    return GetFirefoxDriver();
                 case "edge":
-                    return new EdgeDriver();
+                    return GetEdgeDriver();
                 default:
                     throw new ArgumentException($"Browser '{browser}' is not supported.");
             }
+        }
+
+        private static IWebDriver GetChromeDriver()
+        {
+            return new ChromeDriver(@"C:\Users\miros\source\repos\AutomationTestProject\WebDrivers\Chrome");
+        }
+
+        private static IWebDriver GetFirefoxDriver()
+        {
+            return new FirefoxDriver(@"C:\Users\miros\source\repos\AutomationTestProject\WebDrivers\Firefox");
+        }
+
+        private static IWebDriver GetEdgeDriver()
+        {
+            return new EdgeDriver(@"C:\Users\miros\source\repos\AutomationTestProject\WebDrivers\Edge");
         }
     }
 }
