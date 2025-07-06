@@ -49,6 +49,8 @@ namespace AutomationTestProject.TESTS.NEGATIVE
             element = driver.FindElement(By.CssSelector(warning));
             warningText = element.Text;
             Assert.AreEqual(expectedWarningText, warningText);
+
+            driver?.Quit();
         }
     }
 }
