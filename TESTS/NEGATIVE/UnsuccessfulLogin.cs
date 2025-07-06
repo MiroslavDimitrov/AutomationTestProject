@@ -1,20 +1,13 @@
-﻿using AngleSharp.Dom;
-using AutomationTestProject.BASE;
+﻿using AutomationTestProject.BASE;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutomationTestProject.TESTS.NEGATIVE
 {
     [TestClass]
     public class UnsuccessfulLogin
     {
-
         IWebElement element;
         IWebDriver driver = new FirefoxDriver();
 
@@ -49,6 +42,8 @@ namespace AutomationTestProject.TESTS.NEGATIVE
             element = driver.FindElement(By.CssSelector(warning));
             warningText = element.Text;
             Assert.AreEqual(expectedWarningText, warningText);
+
+            driver?.Quit();
         }
     }
 }

@@ -3,13 +3,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
-
 namespace AutomationTestProject.TESTS
 {
     [TestClass]
     public class LoginTest
     {
-
         IWebElement element;
         IWebDriver driver = new FirefoxDriver();
 
