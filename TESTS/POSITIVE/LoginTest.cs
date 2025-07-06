@@ -8,7 +8,6 @@ namespace AutomationTestProject.TESTS
     [TestClass]
     public class LoginTest
     {
-
         IWebElement element;
         IWebDriver driver = new FirefoxDriver();
 
