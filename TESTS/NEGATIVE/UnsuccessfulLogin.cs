@@ -8,7 +8,6 @@ namespace AutomationTestProject.TESTS.NEGATIVE
     [TestClass]
     public class UnsuccessfulLogin
     {
-
         IWebElement element;
         IWebDriver driver = new FirefoxDriver();
 
