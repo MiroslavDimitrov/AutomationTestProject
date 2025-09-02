@@ -30,8 +30,12 @@ namespace AutomationTestProject.TESTS
         public void AddProductTest()
         {
             var options = new ChromeOptions();
+            options.AddUserProfilePreference("autofill.profile_enabled", false);
             options.AddUserProfilePreference("credentials_enable_service", false);
             options.AddUserProfilePreference("profile.password_manager_enabled", false);
+
+            options.AddArgument(@"user-data-dir=C:\Users\miros\AppData\Local\Google\Chrome\User Data");
+            options.AddArgument("--disable-notifications");
 
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.FullScreen();
@@ -64,6 +68,7 @@ namespace AutomationTestProject.TESTS
         {
 
             var options = new ChromeOptions();
+            options.AddUserProfilePreference("autofill.profile_enabled", false);
             options.AddUserProfilePreference("credentials_enable_service", false);
             options.AddUserProfilePreference("profile.password_manager_enabled", false);
 
